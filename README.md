@@ -42,3 +42,14 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Errors:
+
+#Cannot find module 'underscore'. 
+npm install -g typescript@next
+And then
+
+npm install --save underscore
+npm install --save @types/underscore
+
+This worked for me. Thanks everyone
