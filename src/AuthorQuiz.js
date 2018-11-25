@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 import './AuthorQuiz.css';
 import './bootstrap.min.css'
 
@@ -76,7 +77,26 @@ function Footer() {
   </div>)
 }
 
-function AuthorQuiz({turnData, highlight, onAnswerSelected, onContinue}) {
+function mapStateToProps(state) {
+  return {
+    turnData: state.turnData,
+    highlight: state.highlight
+  };
+}
+
+function mapDispatchToProps(dispatch){
+  return {
+    onAnswerSelected:(answer)=> {
+      dispatch({type: 'ANSWER_SELECTED', answer})
+    },
+    onContinue:() => {
+      dispatch({type:'CONTINUE'});
+    }
+  }
+}
+
+const AuthorQuiz = connect(mapStateToProps, mapDispatchToProps)(
+  function ({turnData, highlight, onAnswerSelected, onContinue}) {
   console.log({...turnData})
     return (
       <div className='container-fluid'>
@@ -86,7 +106,8 @@ function AuthorQuiz({turnData, highlight, onAnswerSelected, onContinue}) {
         <p><Link to="/add">Add an author</Link></p>
         <Footer/>
       </div>
-    ); 
-}
+    );
+  }
+)
 
 export default AuthorQuiz;

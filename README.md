@@ -46,10 +46,14 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ## Errors:
 
 #Cannot find module 'underscore'. 
+```
 npm install -g typescript@next
-And then
-
 npm install --save underscore
 npm install --save @types/underscore
+```
 
-This worked for me. Thanks everyone
+```
+npm install redux react-redux
+```
+
+
